@@ -18,11 +18,10 @@ public class CandidatoDAO {
 		return candidato;
 	}
 	
-	public List<Disciplina> listar() {
-		String jpql = "select distinct(l) from Disciplina d "
-				+ " join fetch d.professores";
+	public List<Candidato> listar() {
+		String jpql = "select distinct(c) from Candidato c ";
 		
-		return manager.createQuery(jpql, Disciplina.class).getResultList();
+		return manager.createQuery(jpql, Candidato.class).getResultList();
 	}
 	
 }

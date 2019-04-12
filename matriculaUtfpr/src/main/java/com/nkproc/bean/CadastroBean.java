@@ -37,12 +37,12 @@ public class CadastroBean {
 	public void reprovar() {
 	}
 
-	private List<Disciplina> disciplina = new ArrayList<>();
+	private List<Candidato> lista = new ArrayList<>();
 	
-	public List<Disciplina> getLivros() {
-		this.disciplina = dao.listar();
+	public List<Candidato> listaCandidatos() {
+		this.candidato = dao.listar();
 		
-		return disciplina;
+		return candidato;
 	}
 	
 }
