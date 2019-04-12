@@ -13,11 +13,12 @@ public class CandidatoDAO {
 	@PersistenceContext
 	private EntityManager manager;
 
-	public void salvar(Candidato candidato) {
+	public Candidato salvar(Candidato candidato) {
 		manager.persist(candidato);
+		return candidato;
 	}
 	
-	public List<Disciplina> disciplina() {
+	public List<Disciplina> listar() {
 		String jpql = "select distinct(l) from Disciplina d "
 				+ " join fetch d.professores";
 		

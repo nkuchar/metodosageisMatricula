@@ -17,9 +17,18 @@ public class CadastroBean {
 
 	@Inject
 	private CandidatoDAO dao;
+	private Candidato candidato;
 	
-	public void salvar() {
-		
+	public Candidato getCandidato() {
+		return candidato;
+	}
+
+	public void setCandidato(Candidato candidato) {
+		this.candidato = candidato;
+	}
+
+	public void salvar(Candidato candidato) {
+		this.candidato = dao.salvar(candidato);
 	}
 	
 	public void aprovar() {
