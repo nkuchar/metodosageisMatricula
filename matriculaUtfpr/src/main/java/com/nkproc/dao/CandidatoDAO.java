@@ -18,8 +18,26 @@ public class CandidatoDAO {
 		return candidato;
 	}
 	
+	public Candidato aprovar(Candidato candidato) {
+		candidato.setStatus(Boolean.TRUE);
+		manager.persist(candidato);
+		return candidato;
+	}
+	
+	public Candidato reprovar(Candidato candidato) {
+		candidato.setStatus(Boolean.FALSE);
+		manager.persist(candidato);
+		return candidato;
+	}
+	
 	public List<Candidato> listar() {
 		String jpql = "select distinct(c) from Candidato c ";
+		
+		return manager.createQuery(jpql, Candidato.class).getResultList();
+	}
+	
+	public List<Candidato> listarAprovados() {
+		String jpql = "select distinct(c) from Candidato c where status='TRUE' ";
 		
 		return manager.createQuery(jpql, Candidato.class).getResultList();
 	}

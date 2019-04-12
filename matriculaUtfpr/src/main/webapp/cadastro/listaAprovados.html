@@ -7,11 +7,11 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <h:body>
-	<h1>Lista de Candidatos</h1>
+	<h1>Lista de Candidatos Aprovados</h1>
 
 	<h:messages />
 
-	<h:dataTable var="candidato" value="#{cadastroBean.listaCandidatos}"
+	<h:dataTable var="candidato" value="#{cadastroBean.listaCandidatosAprovados}"
 			class="table table-bordered table-striped table-hover">
 		<h:column>
 			<f:facet name="header">CPF</f:facet>
@@ -26,10 +26,7 @@
 			#{candidato.email}
 		</h:column>		
 		<h:column>
-			<h:commandButton value="Aprovar" action="#{cadastroBean.aprovar(candidato)}" />
-		</h:column>
-		<h:column>
-			<h:commandButton value="Reprovar" action="#{cadastroBean.reprovar(candidato)}" />
+			<h:commandButton value="Enviar E-mail" action="#{cadastroBean.enviar}" />
 		</h:column>
 	</h:dataTable>
 	</div>

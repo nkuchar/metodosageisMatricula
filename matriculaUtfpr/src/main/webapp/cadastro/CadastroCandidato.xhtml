@@ -21,6 +21,6 @@
 		<h:outputLabel value="Disciplina" />
 		<h:inputText value="#{cadastroBean.candidato.disciplina.nome}" />
 	</div>
-	<h:commandButton value="Cadastrar" action="#{cadastroBean.salvar}" />
+	<h:commandButton value="Cadastrar" action="#{cadastroBean.salvar(candidato)}" />
 </h:form>
 </html>

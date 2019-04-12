@@ -16,6 +16,15 @@ public class Candidato {
 	private String nome;
 	private String email;
 	private Disciplina disciplina;
+	private Boolean status;
+
+	public Boolean getStatus() {
+		return status;
+	}
+
+	public void setStatus(Boolean status) {
+		this.status = status;
+	}
 
 	public String getCpf() {
 		return cpf;

@@ -1,6 +1,5 @@
 package com.nkproc.bean;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
@@ -9,7 +8,6 @@ import javax.inject.Named;
 
 import com.nkproc.dao.CandidatoDAO;
 import com.nkproc.model.Candidato;
-import com.nkproc.model.Disciplina;
 
 @Named
 @RequestScoped
@@ -19,15 +17,22 @@ public class CadastroBean {
 	private CandidatoDAO dao;
 	private Candidato candidato;
 	private List<Candidato> listaCandidato;
+	private List<Candidato> listaCandidatosAprovados;
 
 	public void salvar(Candidato candidato) {
 		this.candidato = dao.salvar(candidato);
 	}
 
-	public void aprovar() {
+	public void aprovar(Candidato candidato) {
+		this.candidato = dao.aprovar(candidato);
 	}
 
-	public void reprovar() {
+	public void reprovar(Candidato candidato) {
+		this.candidato = dao.reprovar(candidato);
+	}
+	
+	public void enviar() {
+		System.out.println("Enviou E-mail.");
 	}
 
 	public List<Candidato> listaCandidatos() {
@@ -36,6 +41,12 @@ public class CadastroBean {
 		return listaCandidato;
 	}
 
+	public List<Candidato> listaCandidatosAprovados() {
+		this.listaCandidatosAprovados = dao.listarAprovados();
+
+		return listaCandidatosAprovados;
+	}
+	
 	public List<Candidato> getListaCandidato() {
 		return listaCandidato;
 	}
