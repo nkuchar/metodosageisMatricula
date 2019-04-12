@@ -18,7 +18,32 @@ public class CadastroBean {
 	@Inject
 	private CandidatoDAO dao;
 	private Candidato candidato;
-	
+	private List<Candidato> listaCandidato;
+
+	public void salvar(Candidato candidato) {
+		this.candidato = dao.salvar(candidato);
+	}
+
+	public void aprovar() {
+	}
+
+	public void reprovar() {
+	}
+
+	public List<Candidato> listaCandidatos() {
+		this.listaCandidato = dao.listar();
+
+		return listaCandidato;
+	}
+
+	public List<Candidato> getListaCandidato() {
+		return listaCandidato;
+	}
+
+	public void setListaCandidato(List<Candidato> listaCandidato) {
+		this.listaCandidato = listaCandidato;
+	}
+
 	public Candidato getCandidato() {
 		return candidato;
 	}
@@ -27,22 +52,4 @@ public class CadastroBean {
 		this.candidato = candidato;
 	}
 
-	public void salvar(Candidato candidato) {
-		this.candidato = dao.salvar(candidato);
-	}
-	
-	public void aprovar() {
-	}
-
-	public void reprovar() {
-	}
-
-	private List<Candidato> lista = new ArrayList<>();
-	
-	public List<Candidato> listaCandidatos() {
-		this.candidato = dao.listar();
-		
-		return candidato;
-	}
-	
 }
